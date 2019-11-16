@@ -31,3 +31,5 @@ git flow init
 ```shell script
 git push
 ```
+
+copy "application.yml" to "application-local.yml"

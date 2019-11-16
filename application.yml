@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: local
+  http.multipart:
+    max-file-size: 5MB
+    max-request-size: 5MB
+  logging:
+    config: logback-spring.xml
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/app
+    diver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    exchange: exchange.xapp
+
+
+logging:
+  config: logback-spring.xml
+  level:
+    io.ryanluoxu.xapp:
+      feign: INFO
+      mapper: INFO
+      aspect: INFO
+      filter.LogTraceRepository: TRACE
+
+feign:
+  okhttp:
+    enable: true
+  client:
+    config:
+      default:
+        connectTimeout: 30000
+        readTimeout: 30000
+        loggerLevel: full
+
+internal-api:
+  user:
+    url: http://localhost:6601
