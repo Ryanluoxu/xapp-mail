@@ -30,5 +30,6 @@ class UserEventListener {
     )
     void userStatusChange(UserMsg userMsg){
         log.info("UserEventListener userStatusChange - userMsg: ${JsonUtil.toString(userMsg)}")
+
     }
 }

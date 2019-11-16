@@ -6,4 +6,5 @@ import groovy.transform.CompileStatic
 class UserInfo {
     String userId
     String userName
+    List<String> accountIds
 }
