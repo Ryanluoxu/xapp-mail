@@ -19,7 +19,7 @@ import javax.sql.DataSource
  */
 @CompileStatic
 @Configuration
-@MapperScan(basePackages = ['io.ryanluoxu.ms.mapper','io.ryanluoxu.ms.*.mapper'])
+@MapperScan(basePackages = ['io.ryanluoxu.xapp.mapper'])
 class MybatisConfig {
 
     @Bean

@@ -22,6 +22,8 @@ class JsonUtil {
         return COMMON_OBJECT_MAPPER.readValue(jsonString, clazz)
     }
     static String toString(Object object){
+        if (!object)
+            return null
         return COMMON_OBJECT_MAPPER.writeValueAsString(object)
     }
 }

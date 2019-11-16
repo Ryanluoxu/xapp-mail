@@ -10,6 +10,7 @@ import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFacto
 import org.springframework.amqp.rabbit.connection.ConnectionFactory
 import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.core.MethodParameter
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory
 import org.springframework.messaging.handler.annotation.support.MessageHandlerMethodFactory
@@ -28,6 +29,7 @@ import org.springframework.retry.support.RetryTemplate
  * @author luoxu on 10/19
  */
 @CompileStatic
+@Configuration
 @EnableRabbit
 @Slf4j
 class RabbitMqListenerConfig implements RabbitListenerConfigurer {

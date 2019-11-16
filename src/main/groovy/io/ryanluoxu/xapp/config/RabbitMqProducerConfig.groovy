@@ -2,6 +2,8 @@ package io.ryanluoxu.xapp.config
 
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
+import io.ryanluoxu.xapp.service.MqProducerService
+import io.ryanluoxu.xapp.service.impl.MqProducerServiceImpl
 import io.ryanluoxu.xapp.util.JsonUtil
 import org.springframework.amqp.core.Message
 import org.springframework.amqp.core.MessageProperties
@@ -13,11 +15,13 @@ import org.springframework.amqp.support.converter.MessageConverter
 import org.springframework.amqp.support.converter.SimpleMessageConverter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
 /**
  * @author luoxu on 10/19
  */
 @CompileStatic
+@Configuration
 @EnableRabbit
 @Slf4j
 class RabbitMqProducerConfig {
@@ -42,5 +46,10 @@ class RabbitMqProducerConfig {
         }
         template.setMessageConverter(customMessageConverter)
         return template
+    }
+
+    @Bean
+    MqProducerService mqProducerService(RabbitTemplate rabbitTemplate){
+        return new MqProducerServiceImpl(rabbitTemplate, exchange)
     }
 }
