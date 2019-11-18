@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DIR="$(pwd -P)"
-PROJECT_NAME="ms-app-template"
+PROJECT_NAME="xapp-mail"
 APPLICATION_VERSION="1.0"
 APP_NAME="app-backend"
 DOCKER_GRADLE_VERSION="4.7-jdk8"

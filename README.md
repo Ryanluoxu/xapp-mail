@@ -10,11 +10,11 @@
 ## Usage
 
 ```shell script
-git clone git@github.com:Ryanluoxu/ms-app-template.git
+git clone git@github.com:Ryanluoxu/xapp-mail.git
 ```
 
 replace "xapp" to "{appName}"
-replace "ms-app-template" to "{appName}-{moduleName}"
+replace "xapp-mail" to "{appName}-{moduleName}"
 
 ```shell script
 git remote add origin git@github.com:Ryanluoxu/{appName}-{moduleName}.git
