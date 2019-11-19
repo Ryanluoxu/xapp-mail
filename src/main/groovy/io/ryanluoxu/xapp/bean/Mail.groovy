@@ -1,4 +1,4 @@
-package io.ryanluoxu.xapp.entity
+package io.ryanluoxu.xapp.bean
 
 import groovy.transform.CompileStatic
 
@@ -13,9 +13,14 @@ class Mail {
     String subject
     String content
     String contentType
-    List<Object> attachments
+    /**
+     * resources/java.jpg
+     * [java.jpg]
+     */
+    List<String> attachments
     Map<String, Object> model
     Mail(){
         contentType = "text/plain"
+        attachments = []
     }
 }
