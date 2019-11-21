@@ -2,7 +2,7 @@ package io.ryanluoxu.xapp.controller
 
 import groovy.transform.CompileStatic
 import io.ryanluoxu.xapp.bean.Mail
-import io.ryanluoxu.xapp.service.MailBaseService
+import io.ryanluoxu.xapp.service.impl.MailServiceImpl
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 class MailController {
 
     @Autowired
-    MailBaseService mailBaseService
+    MailServiceImpl mailBaseService
 
     @GetMapping("send")
     void send() {

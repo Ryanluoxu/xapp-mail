@@ -9,10 +9,11 @@ import org.springframework.stereotype.Component
  */
 @CompileStatic
 @Component
-@ConfigurationProperties("mail")
+@ConfigurationProperties("spring.mail")
 class MailProperties {
     String host
     String port
     String username
+    String fromName
     String password
 }

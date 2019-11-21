@@ -11,8 +11,6 @@ class Mail {
     String mailCc
     String mailBcc
     String subject
-    String content
-    String contentType
     /**
      * resources/java.jpg
      * [java.jpg]
@@ -20,7 +18,6 @@ class Mail {
     List<String> attachments
     Map<String, Object> model
     Mail(){
-        contentType = "text/plain"
         attachments = []
     }
 }

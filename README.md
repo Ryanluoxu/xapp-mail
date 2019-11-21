@@ -1,6 +1,8 @@
 # Xapp Mail 
 
-- Send Email
-- No database access
 - call API to send email
-- listen to MQ to send email
+
+## Google App Password
+- go to google account
+- activate 2FA 
+- set app password

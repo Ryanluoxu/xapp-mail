@@ -1,10 +1,12 @@
-package io.ryanluoxu.xapp.service
+package io.ryanluoxu.xapp.service.impl
 
 import freemarker.template.Configuration
 import freemarker.template.Template
 import groovy.transform.CompileStatic
 import groovy.util.logging.Slf4j
 import io.ryanluoxu.xapp.bean.Mail
+import io.ryanluoxu.xapp.config.MailProperties
+import io.ryanluoxu.xapp.service.MailService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.io.ClassPathResource
 import org.springframework.mail.javamail.JavaMailSender
@@ -12,6 +14,7 @@ import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Service
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils
 
+import javax.annotation.PostConstruct
 import javax.mail.internet.MimeMessage
 import java.nio.charset.StandardCharsets
 
@@ -21,12 +24,20 @@ import java.nio.charset.StandardCharsets
 @CompileStatic
 @Service
 @Slf4j
-class MailBaseService {
+class MailServiceImpl implements MailService {
     @Autowired
     JavaMailSender sender
     @Autowired
     Configuration freemarkerConfig
+    @Autowired
+    MailProperties mailProperties
 
+    @PostConstruct
+    void init() {
+        freemarkerConfig.setClassForTemplateLoading(this.getClass(), "/templates")
+    }
+
+    @Override
     void send(Mail mail) {
 
         MimeMessage message = sender.createMimeMessage()
@@ -41,10 +52,10 @@ class MailBaseService {
             Template template = freemarkerConfig.getTemplate("email-template.ftl")
             String html = FreeMarkerTemplateUtils.processTemplateIntoString(template, mail.model)
 
+            helper.setFrom(mailProperties.username, mailProperties.fromName)
             helper.setTo(mail.mailTo)
             helper.setSubject(mail.subject)
             helper.setText(html, true)
-            log.info(html)
             sender.send(message)
 
         } catch (Exception ex) {

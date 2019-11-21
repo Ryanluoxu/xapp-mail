@@ -24,16 +24,22 @@ spring:
     default-encoding: UTF-8
     host: smtp.gmail.com
     username: ryanluoxu@gmail.com
-    password: rmmoalxkhfvcgksw
+    fromName: Ryan Luo Xu
+    password: mawzuxnzllmhcrbr
     port: 465
     protocol: smtp
     test-connection: false
     properties:
       mail:
+        debug: true
         smtp:
           auth: true
           starttls:
-            enable: true
+          enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
 
 logging:
   config: logback-spring.xml
